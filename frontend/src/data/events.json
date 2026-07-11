@@ -1,0 +1,13 @@
+[
+    {
+        "id": "beginner-skating-1",
+        "name": "Beginner Skating Workshop",
+        "date": "2026-07-11",
+        "time": "7:00 PM",
+        "location": "Astro Skate",
+        "city": "Orlando",
+        "description": "In this workshop, you will learn how to skate, starting with the basics!",
+        "skillLevel": "Beginner",
+        "imageUrl": "//nothing"
+    }
+]
