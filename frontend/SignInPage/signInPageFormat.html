@@ -3,20 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Sign Up</title>
 </head>
 
 <body>
   <h1>Sign Up</h1>
-    <form>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname">
-        <label for="fname">Location:</label><br>
-        <input type="text" id="loca" name="loca"><br>
-        <label for="age">Age (between 1 and 99):</label>
-        <input type="number" id="age" name="age" min="1" max="99">
-    </form>
+
+  <form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br><br>
+
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+
+    <label for="loca">Location:</label><br>
+    <input type="text" id="loca" name="loca"><br><br>
+
+    <label for="age">Age (between 18 and 99):</label><br>
+    <input type="number" id="age" name="age" min="18" max="99"><br><br>
+
+    <label for="uEmail">Email:</label><br>
+    <input type="email" id="uEmail" name="uEmail"><br><br>
+
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br><br>
+
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd"><br><br>
+
+    <fieldset>
+      <legend>What is your skating level?</legend>
+
+      <input
+        type="radio"
+        id="beginner"
+        name="skateLevel"
+        value="beginner"
+      >
+      <label for="beginner">Beginner</label><br>
+
+      <input
+        type="radio"
+        id="intermediate"
+        name="skateLevel"
+        value="intermediate"
+      >
+      <label for="intermediate">Intermediate</label><br>
+
+      <input
+        type="radio"
+        id="skilled"
+        name="skateLevel"
+        value="skilled"
+      >
+      <label for="skilled">Skilled</label><br>
+
+      <input
+        type="radio"
+        id="expert"
+        name="skateLevel"
+        value="expert"
+      >
+      <label for="expert">Expert</label>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>What types of skating do you know or want to learn?</legend>
+
+      <input
+        type="checkbox"
+        id="jamSkating"
+        name="skatingTypes"
+        value="jam-skating"
+      >
+      <label for="jamSkating">Jam skating</label><br>
+
+      <input
+        type="checkbox"
+        id="soulSkating"
+        name="skatingTypes"
+        value="soul-skating"
+      >
+      <label for="soulSkating">Soul skating</label><br>
+
+      <input
+        type="checkbox"
+        id="speedSkating"
+        name="skatingTypes"
+        value="speed-skating"
+      >
+      <label for="speedSkating">Speed skating</label><br>
+
+      <input
+        type="checkbox"
+        id="freestyle"
+        name="skatingTypes"
+        value="freestyle"
+      >
+      <label for="freestyle">Freestyle</label>
+    </fieldset>
+
+    <br>
+
+    <input type="submit" value="Sign Up">
+  </form>
 </body>
 </html>
