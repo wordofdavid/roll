@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+h2 {
+text-align: center; 
+}
+.testbtn {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+
+<h2>RollCall</h2>
+
+<form id="loginForm">
+  Username: <input type="text" id="username"><br><br>
+  Password: <input type="password" id="password"><br><br>
+
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+</form>
+
+<script>
+  const form = document.getElementById('loginForm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    window.location.href = 'events.html';
+  });
+</script>
+
+</body>
+</html>
