@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import rollCallLogo from "../images/RollCall.png";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function LoginPage() {
 
   return (
     <main className="auth-page">
-      <h1>RollCall</h1>
+      <img src={rollCallLogo} alt="RollCall" className="rollcall-logo" />
       <h2>Log In</h2>
 
       {error && (

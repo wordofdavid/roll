@@ -210,3 +210,102 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
+.auth-page {
+  background-image: url('/src/images/carpetbackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.rollcall-logo {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin: 32px 0;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(6, 0, 14, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 24px auto;
+}
+
+.auth-form label {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 4px;
+}
+
+.auth-form input {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.auth-form button {
+  flex: 1;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: var(--sans);
+}
+
+.auth-buttons button[type="submit"] {
+  background-color: var(--accent);
+  color: white;
+}
+
+.auth-buttons button[type="submit"]:hover {
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(170, 59, 255, 0.3);
+}
+
+.auth-buttons button[type="reset"] {
+  background-color: var(--border);
+  color: var(--text-h);
+}
+
+.auth-buttons button[type="reset"]:hover {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+.auth-error {
+  color: #dc2626;
+  font-weight: 600;
+  padding: 12px;
+  background-color: rgba(220, 38, 38, 0.1);
+  border-radius: 6px;
+  border-left: 4px solid #dc2626;
+}
