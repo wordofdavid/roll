@@ -309,3 +309,74 @@ body {
   border-radius: 6px;
   border-left: 4px solid #dc2626;
 }
+
+.profile-page { width: min(900px, calc(100% - 32px)); margin: 0 auto; padding-bottom: 48px; text-align: left; }
+.profile-card { margin-bottom: 24px; padding: 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg); box-shadow: var(--shadow); }
+.profile-summary { display: grid; grid-template-columns: 190px 1fr; gap: 32px; }
+.profile-photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #f7d6e8; }
+.profile-placeholder { display: grid; place-items: center; background: #a32870; color: white; font-size: 64px; }
+.photo-upload { display: block; margin-top: 12px; cursor: pointer; color: #a32870; font-weight: 700; }
+.photo-upload input { display: block; width: 100%; margin-top: 8px; }
+.account-details p { margin: 8px 0; }
+.progress-track { overflow: hidden; height: 28px; margin: 14px 0; border-radius: 999px; background: #eee; }
+.progress-fill { min-width: 42px; height: 100%; display: grid; place-items: center; border-radius: inherit; background: linear-gradient(90deg, #a32870, #ed71b8); color: white; font-size: 14px; font-weight: 700; }
+.friend-form { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-bottom: 20px; }
+.friend-form label { width: 100%; }
+.friend-form input { flex: 1; min-width: 180px; padding: 10px; }
+.friend-list { padding: 0; list-style: none; }
+.friend-list li { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.profile-message { padding: 12px; border-radius: 8px; background: #f7d6e8; color: #5f1740; }
+.event-card button { margin: 6px; }
+.event-card .delete-event-button { background: #b42318; color: white; border-color: #b42318; }
+
+@media (max-width: 640px) {
+  .profile-summary { grid-template-columns: 1fr; }
+}
+
+.create-event-page {
+  width: min(700px, calc(100% - 32px));
+  margin: 0 auto;
+  padding-bottom: 48px;
+  text-align: left;
+}
+
+.create-event-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.create-event-form input,
+.create-event-form select,
+.create-event-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.create-event-form button {
+  margin-top: 10px;
+  padding: 12px 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+}

@@ -4,32 +4,48 @@ import rollCallLogo from "../images/RollCall.png";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setError("");
+    setLoading(true);
 
     const formData = new FormData(event.currentTarget);
+
     const username = formData.get("username")?.trim();
     const password = formData.get("password");
 
-    if (!username || !password) {
-      setError("Please enter your username and password.");
-      return;
+    try {
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setError(result.message || "Login failed.");
+        return;
+      }
+
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", result.user.username);
+
+      navigate("/events", { replace: true });
+    } catch {
+      setError("Cannot connect to the backend.");
+    } finally {
+      setLoading(false);
     }
-
-    /*
-      Temporary login behavior.
-
-      When your backend is ready, send the username and password
-      to the backend and only set isLoggedIn when it approves them.
-    */
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("username", username);
-
-    navigate("/events", { replace: true });
   }
 
   return (
@@ -63,7 +79,10 @@ export default function LoginPage() {
         />
 
         <div className="auth-buttons">
-          <button type="submit">Log In</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Log In"}
+          </button>
+
           <button type="reset" onClick={() => setError("")}>
             Reset
           </button>

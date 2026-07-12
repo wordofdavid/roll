@@ -4,6 +4,7 @@ import {
   Navigate,
   Route,
   Routes,
+  useLocation,
   useNavigate,
 } from "react-router-dom";
 
@@ -11,14 +12,21 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import EventsPage from "./pages/EventsPage";
 import LoginPage from "./pages/LoginPage";
 import SavedEventsPage from "./pages/SavedEventsPage";
+import ProfilePage from "./pages/ProfilePage";
+import CreateEventPage from "./pages/CreateEventPage";
 import SignupPage from "./pages/SignUpPage";
 import "./App.css";
 
 function AppContent() {
   const navigate = useNavigate();
+  const location = useLocation();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isAuthPage = location.pathname === "/" || location.pathname === "/login" || location.pathname === "/signup";
 
-  function handleLogout() {
+  async function handleLogout() {
+    try {
+      await fetch("http://localhost:3000/api/logout", { method: "POST", credentials: "include" });
+    } catch { /* still clear local login state */ }
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("username");
 
@@ -28,10 +36,12 @@ function AppContent() {
   return (
     <>
       <nav className="main-nav">
-        {isLoggedIn ? (
+        {isLoggedIn && !isAuthPage ? (
           <>
             <Link to="/events">Events</Link>
             <Link to="/saved-events">Saved Events</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/create-event">Create Event</Link>
 
             <button type="button" onClick={handleLogout}>
               Log Out
@@ -49,31 +59,18 @@ function AppContent() {
         {/* First page */}
         <Route
           path="/"
-          element={
-            <Navigate
-              to={isLoggedIn ? "/events" : "/login"}
-              replace
-            />
-          }
+          element={<Navigate to="/login" replace />}
         />
 
         {/* Public pages */}
         <Route
           path="/login"
-          element={
-            isLoggedIn
-              ? <Navigate to="/events" replace />
-              : <LoginPage />
-          }
+          element={<LoginPage />}
         />
 
         <Route
           path="/signup"
-          element={
-            isLoggedIn
-              ? <Navigate to="/events" replace />
-              : <SignupPage />
-          }
+          element={<SignupPage />}
         />
 
         {/* Protected pages */}
@@ -83,17 +80,14 @@ function AppContent() {
             path="/saved-events"
             element={<SavedEventsPage />}
           />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/create-event" element={<CreateEventPage />} />
         </Route>
 
         {/* Unknown URL */}
         <Route
           path="*"
-          element={
-            <Navigate
-              to={isLoggedIn ? "/events" : "/login"}
-              replace
-            />
-          }
+          element={<Navigate to="/login" replace />}
         />
       </Routes>
     </>
