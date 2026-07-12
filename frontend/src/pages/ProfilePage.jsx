@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import rollerSkate from "../images/rollerskate.png";
 
 const EVENT_GOAL = 10;
 export default function ProfilePage() {
@@ -81,7 +82,14 @@ export default function ProfilePage() {
       <section className="profile-card">
         <h2>Event progress</h2><p>{attendedCount} of {EVENT_GOAL} events completed</p>
         <div className="progress-track" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="100">
-          <div className="progress-fill" style={{ width: `${progress}%` }}>{progress}%</div>
+          <div className="progress-fill" style={{ width: `${progress}%` }} />
+          <span className="progress-percent">{progress}%</span>
+          <img
+            className="progress-skate"
+            src={rollerSkate}
+            alt=""
+            style={{ left: `clamp(0px, calc(${progress}% - 24px), calc(100% - 48px))` }}
+          />
         </div>
         <p>Mark events as attended from the Events page to increase your progress.</p>
       </section>

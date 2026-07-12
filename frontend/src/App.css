@@ -186,9 +186,12 @@
 .main-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 16px 32px;
   background-color: #f7d6e8;
+  text-align: center;
 }
 
 .main-nav a {
@@ -318,8 +321,10 @@ body {
 .photo-upload { display: block; margin-top: 12px; cursor: pointer; color: #a32870; font-weight: 700; }
 .photo-upload input { display: block; width: 100%; margin-top: 8px; }
 .account-details p { margin: 8px 0; }
-.progress-track { overflow: hidden; height: 28px; margin: 14px 0; border-radius: 999px; background: #eee; }
-.progress-fill { min-width: 42px; height: 100%; display: grid; place-items: center; border-radius: inherit; background: linear-gradient(90deg, #a32870, #ed71b8); color: white; font-size: 14px; font-weight: 700; }
+.progress-track { position: relative; height: 44px; margin: 14px 0; border-radius: 999px; background: #eee; }
+.progress-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #a32870, #ed71b8); transition: width 0.3s ease; }
+.progress-percent { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; color: #111; font-size: 14px; font-weight: 800; text-shadow: 0 1px 2px white; }
+.progress-skate { position: absolute; top: 50%; z-index: 3; width: 48px; height: 40px; object-fit: contain; transform: translateY(-50%); transition: left 0.3s ease; pointer-events: none; }
 .friend-form { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-bottom: 20px; }
 .friend-form label { width: 100%; }
 .friend-form input { flex: 1; min-width: 180px; padding: 10px; }
