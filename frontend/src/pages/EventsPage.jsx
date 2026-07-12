@@ -22,7 +22,8 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <main>
+    <main className="events-page-background">
+      <div className="events-content-panel">
       <header>
         <h1>Upcoming Roller Skating Events</h1>
         <p>Find meetups, workshops, and community skate sessions.</p>
@@ -33,6 +34,7 @@ export default function EventsPage() {
           {events.map((event) => <EventCard key={event.id} event={event} onDeleted={removeEventFromPage} />)}
         </section>
       )}
+      </div>
     </main>
   );
 }

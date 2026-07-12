@@ -11,7 +11,8 @@ export default function SavedEventsPage() {
   );
 
   return (
-    <main>
+    <main className="events-page-background">
+      <div className="events-content-panel">
       <h1>Saved Events</h1>
 
       {savedEvents.length === 0 ? (
@@ -26,6 +27,7 @@ export default function SavedEventsPage() {
           ))}
         </section>
       )}
+      </div>
     </main>
   );
 }

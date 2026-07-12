@@ -380,3 +380,46 @@ body {
 @media (max-width: 520px) {
   .form-row { grid-template-columns: 1fr; }
 }
+
+.events-page-background {
+  min-height: calc(100vh - 64px);
+  box-sizing: border-box;
+  padding: 40px 24px;
+  background-image: url("./images/mainpagebackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.events-content-panel {
+  width: min(1000px, 100%);
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.72);
+  color: white;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.events-content-panel h1,
+.events-content-panel h2,
+.events-content-panel p {
+  color: white;
+}
+
+.events-content-panel .event-card {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+@media (max-width: 600px) {
+  .events-page-background { padding: 20px 12px; }
+  .events-content-panel { padding: 18px; }
+}
