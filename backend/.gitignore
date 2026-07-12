@@ -1,0 +1,5 @@
+node_modules/
+rollcall.db
+rollcall.db-shm
+rollcall.db-wal
+.env
